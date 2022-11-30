@@ -31,8 +31,16 @@ namespace Vacancy.Repository.Repositories
         {
             var typeList = _ctx.Educations.ToList();
             return typeList;
-        }               
+        }
 
+        public async Task<Education> AddEducationByDtoAsync(EducationCreateDto educationDto)
+        {
+            var education = new Education();
+            education.EducationName = educationDto.EducationName;            
+            _ctx.Educations.Add(education);
+            await _ctx.SaveChangesAsync();
+            return _ctx.Educations.FirstOrDefault(x => x.EducationName == education.EducationName);
+        }
         public Education GetEducation(int id)
         {
             return _ctx.Educations.FirstOrDefault(x => x.EducationId == id);

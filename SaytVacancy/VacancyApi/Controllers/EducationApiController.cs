@@ -31,5 +31,11 @@ namespace VacancyApi.Controllers
         {
             return await educationApiRepositories.GetListAsync();
         }
+        [HttpPost]
+        public async Task<Education> Create(EducationCreateDto educationDto)
+        {
+            var createdEducation = await educationApiRepositories.AddEducationByDtoAsync(educationDto);
+            return createdEducation;
+        }
     }
 }
