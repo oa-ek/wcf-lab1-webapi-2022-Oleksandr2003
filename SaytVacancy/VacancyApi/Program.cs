@@ -19,6 +19,8 @@ builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<EducationRepositories>();
+builder.Services.AddScoped<SkillRepositories>();
+builder.Services.AddScoped<ExperienceRepositories>();
 
 builder.Services.AddAutoMapper(typeof(AppAutoMapper).Assembly);
 
@@ -31,7 +33,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",        
         Contact = new Microsoft.OpenApi.Models.OpenApiContact
         {
-            Name = "Education"
+            Name = "Name"
         }
 
     });
