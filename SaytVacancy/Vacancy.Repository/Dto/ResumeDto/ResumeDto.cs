@@ -1,5 +1,4 @@
-﻿
-namespace Vacancy.Repository.Dto.ResumeDto
+﻿namespace Vacancy.Repository.Dto.ResumeDto
 {
     public class ResumeDto
     {      

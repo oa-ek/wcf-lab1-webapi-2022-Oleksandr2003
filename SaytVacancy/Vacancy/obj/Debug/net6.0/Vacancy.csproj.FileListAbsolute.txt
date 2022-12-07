@@ -392,3 +392,5 @@ C:\Users\Professional\Desktop\SaytVacancy\Vacancy\obj\Debug\net6.0\refint\Vacanc
 C:\Users\Professional\Desktop\SaytVacancy\Vacancy\obj\Debug\net6.0\Vacancy.pdb
 C:\Users\Professional\Desktop\SaytVacancy\Vacancy\obj\Debug\net6.0\Vacancy.genruntimeconfig.cache
 C:\Users\Professional\Desktop\SaytVacancy\Vacancy\obj\Debug\net6.0\ref\Vacancy.dll
+C:\Users\User\Desktop\SaytVacancy\Vacancy\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\User\Desktop\SaytVacancy\Vacancy\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

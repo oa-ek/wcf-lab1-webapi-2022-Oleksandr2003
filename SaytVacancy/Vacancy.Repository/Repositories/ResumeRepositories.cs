@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Vacancy.Core;
 using Vacancy.Repository.Dto.ResumeDto;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace Vacancy.Repository.Repositories
 {
@@ -13,20 +14,29 @@ namespace Vacancy.Repository.Repositories
     {
         private readonly VacancyDbContext _ctx;
 
-        private readonly UsersRepositories _userRepositories;
+        //private readonly UsersRepositories _userRepositories;
 
-        public ResumeRepositories(VacancyDbContext ctx, UsersRepositories userRepositories)
+        private readonly IMapper _mapper;
+
+        public ResumeRepositories(VacancyDbContext ctx, /*UsersRepositories userRepositories,*/ IMapper mapper)
         {
             _ctx = ctx;
-            _userRepositories = userRepositories;
+            //_userRepositories = userRepositories;
+            _mapper = mapper;
         }
+
+        public async Task<IEnumerable<ResumeDto>> GetListAsync()
+        {
+            return _mapper.Map<IEnumerable<ResumeDto>>(await _ctx.Resumes.ToListAsync());
+        }
+
         public async Task<Resume> AddResumeAsync(Resume resume)
         {
             _ctx.Resumes.Add(resume);
             await _ctx.SaveChangesAsync();
             return _ctx.Resumes.Include(x => x.Education).Include(x => x.Skill).Include(x => x.Experience).
                Include(x => x.User).
-        
+               
                FirstOrDefault();
         }
         public Resume GetResume(int id)

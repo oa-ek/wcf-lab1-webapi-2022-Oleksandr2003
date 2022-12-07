@@ -13,14 +13,16 @@ builder.Services.AddDbContext<VacancyDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<ResumeRepositories>();
 builder.Services.AddScoped<EducationRepositories>();
 builder.Services.AddScoped<SkillRepositories>();
 builder.Services.AddScoped<ExperienceRepositories>();
+
 
 builder.Services.AddAutoMapper(typeof(AppAutoMapper).Assembly);
 
@@ -32,7 +34,7 @@ builder.Services.AddSwaggerGen(options =>
     {
         Version = "v1",        
         Contact = new Microsoft.OpenApi.Models.OpenApiContact
-        {
+        {           
             Name = "Name"
         }
 
